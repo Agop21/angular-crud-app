@@ -1,6 +1,5 @@
 # CrudApplication
 This is a simple CRUD (Create, Read, Update, Delete) application built using Angular. It allows users to perform CRUD operations on employee data.
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.2.
 
 ## Features
 
