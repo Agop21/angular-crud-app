@@ -1,0 +1,78 @@
+.heading {
+  color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.fa-edit {
+  color: rgb(242, 192, 41);
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.fa-edit:hover {
+  color: rgb(215, 164, 11);
+}
+
+.fa-trash {
+  color: red;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.fa-trash:hover {
+  color: rgb(218, 8, 8);
+}
+
+.modal-body {
+  color: #de3f33;
+  font-weight: bold;
+}
+
+.alert {
+  text-align: center;
+}
+
+.row > * {
+  padding-bottom: 63px;
+}
+
+/* media queries */
+/* Navbar styles */
+@media (max-width: 991px) {
+  .navbar-brand {
+    margin-right: 50px;
+  }
+}
+
+/* Table styles */
+@media (max-width: 767px) {
+  table {
+    font-size: 12px;
+  }
+  .fa-trash {
+    margin-top: 10px;
+  }
+}
+
+/* Footer styles */
+@media (max-width: 767px) {
+  .footer {
+    padding: 20px;
+  }
+}
+
+/* Social media icons styles */
+@media (max-width: 575px) {
+  .social-media img {
+    width: 20px;
+    margin-right: 10px;
+  }
+}
+
+/* Copyright text styles */
+@media (max-width: 575px) {
+  .copyright {
+    font-size: 12px;
+  }
+}

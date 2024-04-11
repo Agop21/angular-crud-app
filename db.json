@@ -1,0 +1,76 @@
+{
+  "posts": [
+    {
+      "id": "995c",
+      "firstName": "Agop",
+      "lastName": "Artyunyan",
+      "job": "Developer",
+      "gender": "Male",
+      "dob": "2000-04-21"
+    },
+    {
+      "id": "e3dc",
+      "firstName": "Maria",
+      "lastName": "Petrova",
+      "job": "HR Manager",
+      "gender": "Female",
+      "dob": "1992-05-20"
+    },
+    {
+      "id": "077b",
+      "firstName": "Ivan",
+      "lastName": "Ivanov",
+      "job": "Project Manager",
+      "gender": "Male",
+      "dob": "1976-08-24"
+    },
+    {
+      "id": "4d73",
+      "firstName": "Radoslav",
+      "lastName": "Ignatov",
+      "job": "Java Developer",
+      "gender": "Male",
+      "dob": "1998-07-01"
+    },
+    {
+      "id": "bece",
+      "firstName": "Simona",
+      "lastName": "Ilieva",
+      "job": "Designer",
+      "gender": "Female",
+      "dob": "1996-03-15"
+    },
+    {
+      "id": "0306",
+      "firstName": "Peter",
+      "lastName": "Simeonov",
+      "job": "IT Support",
+      "gender": "Male",
+      "dob": "1989-05-30"
+    },
+    {
+      "id": "4bfa",
+      "firstName": "Gabriela",
+      "lastName": "Petkova",
+      "job": "QA Engineer",
+      "gender": "Female",
+      "dob": "1998-08-29"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "employees": []
+}

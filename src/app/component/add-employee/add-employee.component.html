@@ -1,0 +1,294 @@
+<app-header [addEmployeeBtn]="false"></app-header>
+
+<!-- ErrorMessage begin -->
+<div class="alert alert-danger mt-2" *ngIf="errorMessage">
+  <h4>Error occurred</h4>
+  <p>{{ errorMessage }}</p>
+  <button class="close-button btn btn-danger" (click)="onClose()">
+    Cancel
+  </button>
+</div>
+<!--ErrorMessage end -->
+
+<!-- image section -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-5">
+      <div class="image">
+        <img
+          class="img-fluid"
+          src="https://salestack.in/admin/api/uploads/Product//1660628686Qz8l94Ic.png"
+          alt=""
+        />
+      </div>
+    </div>
+    <!-- form section -->
+    <div class="col-md-6">
+      <div class="card">
+        <h5>Add Employee</h5>
+        <div class="row">
+          <form [formGroup]="contactform" class="needs-validation" novalidate>
+            <div class="form-group mb-1">
+              <label for="exampleInputEmail1" class="form-label"
+                >First Name</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                formControlName="firstName"
+                placeholder="Enter First Name"
+              />
+              <div
+                *ngIf="
+                  contactform.controls['firstName'].errors?.required &&
+                  contactform.controls['firstName'].touched
+                "
+                class="text-danger"
+              >
+                First Name is required
+              </div>
+              <div
+                *ngIf="
+                  contactform.controls['firstName'].errors?.minlength &&
+                  contactform.controls['firstName'].touched
+                "
+                class="text-danger"
+              >
+                First Name must be at least 4 characters
+              </div>
+              <div
+                *ngIf="
+                  contactform.controls['firstName'].errors
+                    ?.firstLetterUppercase &&
+                  contactform.controls['firstName'].touched
+                "
+                class="text-danger"
+              >
+                First letter must be uppercase
+              </div>
+              <div
+                *ngIf="
+                  contactform.controls['firstName'].errors
+                    ?.noSpecialCharacters &&
+                  contactform.controls['firstName'].touched
+                "
+                class="text-danger"
+              >
+                First Name cannot contain special characters
+              </div>
+            </div>
+
+            <div class="form-group mb-1">
+              <label for="exampleInputEmail1" class="form-label"
+                >Last Name</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                formControlName="lastName"
+                placeholder="Enter Last Name"
+                required
+              />
+              <div
+                *ngIf="
+                  contactform.controls['lastName'].errors?.required &&
+                  contactform.controls['lastName'].touched
+                "
+                class="text-danger"
+              >
+                Last Name is required
+              </div>
+              <div
+                *ngIf="
+                  contactform.controls['lastName'].errors?.minlength &&
+                  contactform.controls['lastName'].touched
+                "
+                class="text-danger"
+              >
+                Last Name must be at least 4 characters
+              </div>
+              <div
+                *ngIf="
+                  contactform.controls['lastName'].errors
+                    ?.firstLetterUppercase &&
+                  contactform.controls['lastName'].touched
+                "
+                class="text-danger"
+              >
+                First letter must be uppercase
+              </div>
+              <div
+                *ngIf="
+                  contactform.controls['lastName'].errors
+                    ?.noSpecialCharacters &&
+                  contactform.controls['lastName'].touched
+                "
+                class="text-danger"
+              >
+                Last Name cannot contain special characters
+              </div>
+            </div>
+
+            <div class="form-group mb-1">
+              <label for="exampleInputEmail1" class="form-label">Job</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="job"
+                placeholder="Enter your Job"
+                required
+                pattern="^[A-Z][a-zA-Z ]*$"
+              />
+              <div
+                *ngIf="
+                  contactform.controls['job'].errors?.required &&
+                  contactform.controls['job'].touched
+                "
+                class="text-danger"
+              >
+                Job is required
+              </div>
+              <div
+                *ngIf="
+                  contactform.controls['job'].errors?.minlength &&
+                  contactform.controls['job'].touched
+                "
+                class="text-danger"
+              >
+                Job title must be at least 4 characters
+              </div>
+              <div
+                *ngIf="
+                  contactform.controls['job'].errors?.pattern &&
+                  contactform.controls['job'].touched
+                "
+                class="text-danger"
+              >
+                Job must contain only characters
+              </div>
+
+              <div
+                *ngIf="
+                  contactform.controls['job'].errors?.firstLetterUppercase &&
+                  contactform.controls['job'].touched
+                "
+                class="text-danger"
+              >
+                First letter must be uppercase
+              </div>
+            </div>
+
+            <div class="form-group mb-1">
+              <label for="genderSelect" class="form-label">Gender</label>
+              <select
+                class="form-control custom-select"
+                id="genderSelect"
+                formControlName="gender"
+                required
+              >
+                <option value="" disabled selected>Choose Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+              <div
+                *ngIf="
+                  contactform.controls['gender'].errors?.required &&
+                  contactform.controls['gender'].touched
+                "
+                class="text-danger"
+              >
+                Gender is required
+              </div>
+            </div>
+
+            <div class="form-group mb-1">
+              <label for="birthDate" class="form-label">Date of Birth</label>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="dob"
+                required
+              />
+              <div
+                *ngIf="
+                  contactform.controls['dob'].errors?.required &&
+                  contactform.controls['dob'].touched
+                "
+                class="text-danger"
+              >
+                Date of Birth is required
+              </div>
+              <div
+                *ngIf="
+                  contactform.controls['dob'].errors?.futureDate &&
+                  contactform.controls['dob'].touched
+                "
+                class="text-danger"
+              >
+                Date of Birth cannot be a future date
+              </div>
+            </div>
+
+            <div class="text-center mt-2">
+              <button
+                type="submit"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                class="btn btn-success btnForm"
+                [disabled]="!contactform.valid"
+              >
+                Submit</button
+              >&nbsp;
+              <button
+                type="submit"
+                routerLink="/contactlist"
+                class="btn btn-danger btnForm"
+              >
+                Back
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">Are you sure you want to add this Employee?</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          (click)="submitEmployee(this.contactform.value)"
+        >
+          Add Now
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

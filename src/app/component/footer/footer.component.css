@@ -1,0 +1,28 @@
+/* begin */
+.footer {
+  color: white;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.social-media {
+  margin-bottom: 10px;
+}
+
+.social-media a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+/*social media icon hover*/
+.social-media a:hover {
+  color: #de3f33;
+}
+
+.copyright {
+  font-size: 14px;
+}

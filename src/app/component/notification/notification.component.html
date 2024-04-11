@@ -1,0 +1,14 @@
+<!-- <p>notification works!</p> -->
+
+<!-- <div class="notification-container" *ngIf="errorMessage">
+  <div class="notification-message">
+    {{ errorMessage }}
+  </div>
+  <button class="close-button" (click)="onClose()">X</button>
+</div> -->
+
+<div class="alert alert-dangegr mt-2" *ngIf="errorMessage">
+  <h4>Error occurred</h4>
+  <p>{{ errorMessage }}</p>
+  <button class="close-button" (click)="onClose()">X</button>
+</div>

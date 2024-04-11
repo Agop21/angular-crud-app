@@ -1,0 +1,30 @@
+.notification-container {
+  position: fixed; /* Ensures notification stays visible when scrolling */
+  top: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  background-color: #f8d7da; /* Light red for error notification */
+  border: 1px solid #e74c3c; /* Red border */
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensure notification appears above other elements */
+  opacity: 1; /* Ensure full opacity */
+  transition: opacity 0.3s ease-in-out; /* Smooth fade-in/out animation */
+}
+
+.notification-container.alert-primary {
+  /* Adjust styles for different alert types (if applicable) */
+  background-color: #d4edda;
+  border-color: #007bff;
+}
+
+.notification-message {
+  margin: 0;
+  font-weight: bold;
+}
+
+.close-button {
+  float: right; /* Positions close button on the right */
+  margin-left: 10px;
+  cursor: pointer;
+}

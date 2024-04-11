@@ -1,0 +1,248 @@
+<app-header [addEmployeeBtn]="false"></app-header>
+
+<!--ErrorMessage begin -->
+<div class="alert alert-danger mt-2" *ngIf="errorMessage">
+  <h4>Error occurred</h4>
+  <p>{{ errorMessage }}</p>
+  <button class="close-button btn btn-danger" (click)="onClose()">
+    Cancel
+  </button>
+</div>
+<!--ErrorMessage end -->
+
+<!-- image section -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-5">
+      <div class="image">
+        <img
+          class="img-fluid"
+          src="https://salestack.in/admin/api/uploads/Product//1660628686Qz8l94Ic.png"
+          alt=""
+        />
+      </div>
+    </div>
+    <!-- form section -->
+    <div class="col-md-6">
+      <div class="card">
+        <h5>Update Employee</h5>
+        <div class="row">
+          <form class="needs-validation" novalidate [formGroup]="contactform">
+            <!-- First Name -->
+            <div class="form-group mb-1">
+              <label for="firstName" class="form-label">First Name</label>
+              <input
+                [(ngModel)]="contactData.firstName"
+                name="firstName"
+                type="text"
+                formControlName="firstName"
+                class="form-control"
+                placeholder="Enter First Name"
+                required
+                pattern="[A-Z][a-zA-Z ]*"
+              />
+              <div
+                *ngIf="
+                  contactform.get('firstName').invalid &&
+                  contactform.get('firstName').touched
+                "
+                class="text-danger"
+              >
+                <div *ngIf="contactform.get('firstName').errors.required">
+                  First Name is required.
+                </div>
+                <div *ngIf="contactform.get('firstName').errors.minlength">
+                  First Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="contactform.get('firstName').errors.pattern">
+                  First Name must start with an uppercase letter and contain
+                  only letters and spaces.
+                </div>
+              </div>
+            </div>
+
+            <!-- Last Name -->
+            <div class="form-group mb-1">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input
+                type="text"
+                [(ngModel)]="contactData.lastName"
+                name="lastName"
+                formControlName="lastName"
+                class="form-control"
+                placeholder="Enter Last Name"
+                required
+                pattern="[A-Z][a-zA-Z ]*"
+              />
+              <!-- Validation Messages -->
+              <div
+                *ngIf="
+                  contactform.get('lastName').invalid &&
+                  contactform.get('lastName').touched
+                "
+                class="text-danger"
+              >
+                <div *ngIf="contactform.get('lastName').errors.required">
+                  Last Name is required.
+                </div>
+                <div *ngIf="contactform.get('lastName').errors.minlength">
+                  Last Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="contactform.get('lastName').errors.pattern">
+                  Last Name must start with an uppercase letter and contain only
+                  letters and spaces.
+                </div>
+              </div>
+            </div>
+
+            <!-- Job -->
+            <div class="form-group mb-1">
+              <label for="job" class="form-label">Job</label>
+              <input
+                type="text"
+                [(ngModel)]="contactData.job"
+                name="job"
+                formControlName="job"
+                class="form-control"
+                placeholder="Enter your Job"
+                required
+                pattern="[A-Z][a-zA-Z ]*"
+              />
+              <!-- Validation Messages -->
+              <div
+                *ngIf="
+                  contactform.get('job').invalid &&
+                  contactform.get('job').touched
+                "
+                class="text-danger"
+              >
+                <div *ngIf="contactform.get('job').errors.required">
+                  Job is required.
+                </div>
+                <div *ngIf="contactform.get('job').errors.minlength">
+                  Job must be at least 4 characters long.
+                </div>
+                <div *ngIf="contactform.get('job').errors.pattern">
+                  Job must start with an uppercase letter and contain only
+                  letters and spaces.
+                </div>
+              </div>
+            </div>
+
+            <!-- Gender -->
+            <div class="form-group mb-1">
+              <label for="gender" class="form-label">Gender</label>
+              <select
+                formControlName="gender"
+                class="form-control custom-select"
+                [(ngModel)]="contactData.gender"
+                name="gender"
+              >
+                <option value="" disabled selected>Choose Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+              <!-- Validation Message -->
+              <div
+                *ngIf="
+                  contactform.get('gender').invalid &&
+                  contactform.get('gender').touched
+                "
+                class="text-danger"
+              >
+                Gender is required.
+              </div>
+            </div>
+
+            <!-- Date of Birth -->
+            <div class="form-group mb-1">
+              <label for="dob" class="form-label">Date of Birth</label>
+              <input
+                type="date"
+                formControlName="dob"
+                class="form-control"
+                required
+                [(ngModel)]="contactData.dob"
+                name="dob"
+              />
+              <!-- Validation Messages -->
+              <div
+                *ngIf="
+                  contactform.get('dob').invalid &&
+                  contactform.get('dob').touched
+                "
+                class="text-danger"
+              >
+                <div *ngIf="contactform.get('dob').errors.required">
+                  Date of Birth is required.
+                </div>
+                <div *ngIf="contactform.get('dob').errors.futureDate">
+                  Date of Birth cannot be a future date.
+                </div>
+              </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="text-center mt-2">
+              <button
+                type="submit"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                class="btn btn-success btnForm"
+                [disabled]="contactform.invalid"
+              >
+                Update
+              </button>
+              <button
+                type="submit"
+                routerLink="/contactlist"
+                class="btn btn-danger btnForm"
+              >
+                Back
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to update this Employee?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="update()"
+          data-bs-dismiss="modal"
+        >
+          Save changes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
