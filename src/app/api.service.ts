@@ -16,7 +16,7 @@ export class ApiService {
 
   //get method
   getcontact() {
-    return this.http.get<employeeModel[]>('http://localhost:3000/posts');
+    return this.http.get<employeeModel[]>('/posts');
   }
 
   //delete method
