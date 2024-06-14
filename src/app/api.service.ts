@@ -9,30 +9,41 @@ import { throwError } from 'rxjs';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
+  // http://localhost:3000/posts
+
   //post method
   addcontact(data: employeeModel) {
-    return this.http.post<employeeModel>('http://localhost:3000/posts', data);
+    return this.http.post<employeeModel>(
+      'https://userdata-jqpv.onrender.com/posts',
+      data
+    );
   }
 
   //get method
   getcontact() {
-    return this.http.get<employeeModel[]>('http://localhost:3000/posts');
+    return this.http.get<employeeModel[]>(
+      'https://userdata-jqpv.onrender.com/posts'
+    );
   }
 
   //delete method
   deletecontact(id: number) {
-    return this.http.delete<employeeModel>(`http://localhost:3000/posts/${id}`);
+    return this.http.delete<employeeModel>(
+      `https://userdata-jqpv.onrender.com/posts/${id}`
+    );
   }
 
   //fetching data on edit
   fetchdata(id: number) {
-    return this.http.get<employeeModel>(`http://localhost:3000/posts/${id}`);
+    return this.http.get<employeeModel>(
+      `https://userdata-jqpv.onrender.com/posts/${id}`
+    );
   }
 
   //update method
   updatecontact(id: number, data: employeeModel) {
     return this.http.put<employeeModel>(
-      `http://localhost:3000/posts/${id}`,
+      `https://userdata-jqpv.onrender.com/posts/${id}`,
       data
     );
   }
